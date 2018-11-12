@@ -1,0 +1,42 @@
+﻿CREATE DATABASE IF NOT EXISTS utu;
+
+CREATE TABLE IF NOT EXISTS utu.alumno(
+	idAlumno int (30) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nombre varchar (25) NOT NULL,
+    apellido varchar(25) NOT NULL,
+	localidad varchar (30) NOT NULL,
+    direccion varchar (30) NOT NULL,
+    fnacimiento varchar(10) NOT NULL,
+    edad int (2) NOT NULL,
+    telefono varchar (8),
+    celular varchar (9),
+	ci varchar (8) NOT NULL,
+    nivel varchar (20) NOT NULL
+
+); 
+
+CREATE TABLE IF NOT EXISTS utu.curso (
+	idCurso int (30) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nombre varchar (20) NOT NULL,
+    nivel varchar(20) NOT NULL,
+    descripcion varchar (250) NOT NULL,
+    estado varchar (25) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS utu.registro (
+	idRegistro int (30) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    usuario varchar(12) NOT NULL,
+    contrasenia varchar(32) NOT NULL,
+    cargo varchar (25) NOT NULL,
+    pregunta varchar(30) NOT NULL,
+    respuesta varchar (40) NOT NULL,
+    estado varchar(25) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS utu.alumno_curso (
+	idAlumno_curso int (30) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    fk_Curso int (30) NOT NULL,
+    fk_Alumno int (30) NOT NULL,
+    FOREIGN KEY (fk_Curso) REFERENCES curso (idCurso),
+    FOREIGN KEY (fk_Alumno) REFERENCES alumno (idAlumno)
+);

@@ -1,0 +1,8 @@
+# Dirección del servidor 
+servidor.direccion=localhost
+#Nombre de la Base de datos
+servidor.BD=utu
+# Usuario para la conexión
+servidor.usuario=root
+# Password para la conexión
+servidor.password=
